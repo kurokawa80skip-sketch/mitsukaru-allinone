@@ -480,6 +480,13 @@ img.ill{width:100%;border-radius:14px;background:#fff;display:block}
     gtag('config','G-SSRBWMC3Z1',{lp_variant:v});
   })();
 </script>
+<!-- Meta Pixel（ミツカルのLP用） -->
+<script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init','1298978051903826');
+  fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1298978051903826&ev=PageView&noscript=1"></noscript>
 </head>
 <body class="plan-a">
 
@@ -733,15 +740,15 @@ img.ill{width:100%;border-radius:14px;background:#fff;display:block}
   document.addEventListener('click',function(e){
     var a=e.target.closest('a'); if(!a) return;
     var sec=a.closest('section,.fv-cta,.sticky'); var where=sec?(sec.id||sec.className.split(' ')[0]):'other';
-    if(a.classList.contains('btn-line')) send('click_line',{section:where,link_text:a.textContent.trim().slice(0,30)});
-    else if((a.getAttribute('href')||'').indexOf('tel:')===0) send('click_tel',{section:where});
+    if(a.classList.contains('btn-line')){ send('click_line',{section:where,link_text:a.textContent.trim().slice(0,30)}); if(typeof fbq==='function') fbq('track','Lead',{content_name:'LINE予約ボタン',content_category:v,section:where}); }
+    else if((a.getAttribute('href')||'').indexOf('tel:')===0){ send('click_tel',{section:where}); if(typeof fbq==='function') fbq('track','Contact',{content_name:'電話ボタン',content_category:v,section:where}); }
   });
   /* セクション到達 */
   if('IntersectionObserver' in window){
     var seen={};
     var io=new IntersectionObserver(function(es){es.forEach(function(en){
       if(en.isIntersecting && !seen[en.target.id]){seen[en.target.id]=1;send('view_section',{section:en.target.id});}
-    });},{threshold:0.4});
+    });},{threshold:0,rootMargin:'0px 0px -50% 0px'});
     document.querySelectorAll('section[id]').forEach(function(sct){io.observe(sct);});
   }
   /* スクロール深度 25/50/75/100% */
