@@ -144,6 +144,9 @@ section{padding:48px 20px}
 .price-card .big small{font-family:"Noto Sans JP";font-size:16px}
 .price-card .inc{text-align:left;margin-top:14px;font-size:13.5px;background:var(--sky-ll);border-radius:10px;padding:10px 14px}
 .price-card .inc li{list-style:none;padding:3px 0}
+.price-card .sheet{margin:12px 0 0}
+.price-card .sheet img{display:block;width:50%;height:auto;border-radius:10px;margin:0 auto}
+.price-card .sheet figcaption{font-size:12px;color:var(--sub);margin-top:6px}
 .price-card .inc li::before{content:"● ";color:var(--sky);font-size:10px}
 .after{margin-top:14px;background:#fff;border-radius:14px;padding:16px;font-size:13.5px}
 .after h4{font-size:15px;margin-bottom:6px}
@@ -374,6 +377,8 @@ img.ill{width:100%;border-radius:14px;background:#fff;display:block}
 .fv-over{padding:90px 12px 12px;background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,.55) 30%,rgba(255,255,255,.85) 58%,rgba(255,255,255,.97) 82%,#fff 100%)}
 .fv-over h1{margin-bottom:10px}
 .fv-lead-under{padding-top:10px}
+.fv-lead-under .n35{font-family:Montserrat,"Noto Sans JP",sans-serif;font-weight:700;font-size:1.9em;line-height:1;color:var(--orange);margin:0 3px}
+.fv-lead-under .n35 small{font-family:"Noto Sans JP",sans-serif;font-weight:900;font-size:.5em;margin-left:1px}
 .fv .fv-target{background:rgba(255,255,255,.95)}
 
 /* v18 FV：スライド（フェード＋ゆっくりズーム） */
@@ -412,7 +417,7 @@ img.ill{width:100%;border-radius:14px;background:#fff;display:block}
 .fv-slides img:nth-child(1){animation-delay:0s}.fv-slides img:nth-child(2){animation-delay:2.5s}.fv-slides img:nth-child(3){animation-delay:5s}.fv-slides img:nth-child(4){animation-delay:7.5s}.fv-slides img:nth-child(5){animation-delay:10s}
 @keyframes fvfade5{0%{opacity:0;transform:scale(1.05)}4%{opacity:1}20%{opacity:1}24%{opacity:0;transform:scale(1)}100%{opacity:0}}
 .fv-bar{grid-template-columns:repeat(5,1fr);gap:3px}
-.fv-bar i::after{animation-duration:12.5s!important}
+.fv-bar i::after{animation-duration:12.5s!important;animation-timing-function:linear;animation-iteration-count:infinite}
 .fv-bar i:nth-child(1)::after{animation-name:b1}.fv-bar i:nth-child(2)::after{animation-name:b2}.fv-bar i:nth-child(3)::after{animation-name:b3}.fv-bar i:nth-child(4)::after{animation-name:b4}.fv-bar i:nth-child(5)::after{animation-name:b5}
 @keyframes b1{0%{width:0}20%{width:100%}100%{width:100%}}
 @keyframes b2{0%,20%{width:0}40%{width:100%}100%{width:100%}}
@@ -497,7 +502,7 @@ img.ill{width:100%;border-radius:14px;background:#fff;display:block}
 </section>
 <div class="fv-under2">
   <p class="fv-allin"><span class="fv-box ai">オールインワン施術</span></p>
-  <p class="fv-lead-under">原因から整えて、早く楽に。<br>そして、繰り返さない体へ。</p>
+  <p class="fv-lead-under">初診80分のうち約<b class="n35">35<small>分</small></b>は、<br>原因を知る・確かめる時間。</p>
 </div>
 <div class="badges ic">
   <div class="badge"><span class="ico"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="17"/><path d="M24 13v11l7 5"/></svg></span><b>初診80分</b><span>じっくり<br>時間をかけて</span></div>
@@ -588,11 +593,12 @@ img.ill{width:100%;border-radius:14px;background:#fff;display:block}
     <p class="big">6,600<small>円</small></p>
     <p class="ins">＋別途保険料（保険証をご持参ください）</p>
     <ul class="inc">
-      <li>問診・AI姿勢解析・動きの検査</li>
+      <li>問診・AI姿勢解析・動きの検査<br><small style="color:var(--sub)">（AI姿勢解析の結果はお渡しします）</small></li>
       <li>原因のご説明</li>
       <li>骨格矯正・鍼施術・筋肉調整・EMS など<br><small style="color:var(--sub)">（その日の状態に合わせて組み合わせます）</small></li>
       <li>最後の確認・ご自宅でのケアのご案内</li>
     </ul>
+    <figure class="sheet"><img src="result-sheet.jpg" alt="AI姿勢解析の結果の用紙をお渡ししている様子" loading="lazy" width="800" height="600"><figcaption>AI姿勢解析の結果は、用紙でお渡しします</figcaption></figure>
   </div>
   <div class="cta">
     <p class="micro">ご予約は<b>LINE</b>から。空いている日時を選ぶだけです。</p>
