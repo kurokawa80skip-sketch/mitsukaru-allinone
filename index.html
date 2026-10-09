@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ミツカル接骨院 オールインワン施術LP（A案 v30）</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --sky:#2BA8E0; --sky-d:#1B7FB0; --sky-l:#EAF6FC; --sky-ll:#F5FBFE;
+  --orange:#F58220; --orange-d:#D96A0C; --orange-l:#FFF3E8;
+  --ink:#1F2A33; --sub:#5B6770; --line:#DCE6EC; --ph:#D5DEE4; --ph-ink:#7A8790;
+  --line-green:#06C755;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Noto Sans JP",sans-serif;color:var(--ink);background:#E9EEF1;line-height:1.75;font-size:15px}
+img{max-width:100%;display:block}
+.page{max-width:480px;margin:0 auto;background:#fff;padding-bottom:84px;box-shadow:0 0 24px rgba(0,0,0,.08)}
+
+/* ===== ワイヤー用：案切替＆注記（本番では削除） ===== */
+.wf-bar{position:sticky;top:0;z-index:50;background:#263238;color:#fff;font-size:12px;display:flex;align-items:center;gap:8px;padding:8px 12px}
+.wf-bar b{font-weight:700;margin-right:auto}
+.wf-bar button{border:1px solid #fff6;background:transparent;color:#fff;padding:4px 10px;border-radius:999px;font:inherit;cursor:pointer}
+.wf-bar button.on{background:#fff;color:#263238;font-weight:700}
+.wf-bar label{display:flex;align-items:center;gap:4px;cursor:pointer}
+.note{display:block;margin:10px 16px 0;padding:6px 10px;border-left:3px solid #9C27B0;background:#F7EEF9;color:#6A1B7A;font-size:11.5px;line-height:1.6}
+body.hide-notes .note{display:none}
+body.plan-a .only-b, body.plan-b .only-a{display:none!important}
+
+/* ===== 共通 ===== */
+section{padding:48px 20px}
+.sec-en{font-family:Montserrat,sans-serif;font-weight:700;color:var(--sky);letter-spacing:.12em;font-size:12px;text-align:center}
+.sec-ttl{font-size:22px;font-weight:900;text-align:center;line-height:1.5;margin:4px 0 24px}
+.sec-ttl em{font-style:normal;color:var(--sky-d);background:linear-gradient(transparent 62%,#FFE1C4 62%)}
+.ph{background:var(--ph);color:var(--ph-ink);font-size:12px;display:flex;align-items:center;justify-content:center;text-align:center;padding:8px;border-radius:10px}
+.lead{color:var(--sub);font-size:14px}
+
+/* CTA */
+.cta{margin:28px 0 0;text-align:center}
+.cta .micro{font-size:12.5px;color:var(--sub);margin-bottom:8px}
+.cta .micro b{color:var(--orange-d)}
+.btn-line{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:var(--orange);color:#fff;text-decoration:none;font-weight:900;font-size:17px;padding:16px;border-radius:999px;box-shadow:0 4px 0 var(--orange-d)}
+.btn-line .ico{background:var(--line-green);color:#fff;font-size:11px;font-weight:900;border-radius:6px;padding:2px 6px}
+.btn-line small{display:block;font-size:11px;font-weight:500;opacity:.9}
+.tel{display:inline-block;margin-top:12px;font-size:13px;color:var(--sky-d);text-decoration:underline}
+
+/* ===== 1. FV ===== */
+.fv{padding:0;position:relative}
+.fv .ph.photo{height:440px;border-radius:0;align-items:flex-start;padding-top:90px}
+.fv-copy{position:absolute;left:0;right:0;bottom:0;padding:24px 20px 20px;background:linear-gradient(transparent,rgba(255,255,255,.96) 28%)}
+.fv-kicker{display:inline-block;background:var(--sky);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:4px}
+.fv h1{font-size:27px;font-weight:900;line-height:1.4;margin:8px 0 6px}
+.fv h1 em{font-style:normal;color:var(--orange)}
+.fv .sub{font-size:13.5px;color:var(--sub)}
+.badges{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:16px 20px 0}
+.badge{border:2px solid var(--sky);border-radius:12px;text-align:center;padding:10px 4px;line-height:1.3}
+.badge b{display:block;color:var(--sky-d);font-size:17px;font-weight:900}
+.badge span{font-size:11px;color:var(--sub)}
+.fv-cta{padding:0 20px 8px}
+/* B案FV：価格を先に */
+.fv-b-stack{margin:16px 20px 0;border-radius:16px;background:var(--sky-ll);border:2px solid var(--sky);padding:16px}
+.stack-row{display:flex;justify-content:space-between;font-size:14px;padding:6px 0;border-bottom:1px dashed var(--line)}
+.stack-row span:last-child{color:var(--sky-d);font-weight:700}
+.stack-total{display:flex;align-items:baseline;justify-content:space-between;margin-top:10px}
+.stack-total .lbl{font-weight:700}
+.stack-total .price{font-family:Montserrat,sans-serif;font-size:34px;font-weight:700;color:var(--orange)}
+.stack-total .price small{font-size:14px;font-family:"Noto Sans JP";font-weight:700}
+
+/* ===== 2. お悩み ===== */
+.worry{background:var(--sky-l)}
+.check{list-style:none;background:#fff;border-radius:14px;padding:8px 16px}
+.check li{padding:12px 0 12px 32px;position:relative;border-bottom:1px solid var(--line);font-weight:500}
+.check li:last-child{border-bottom:none}
+.check li::before{content:"✓";position:absolute;left:0;top:12px;width:22px;height:22px;border-radius:5px;background:var(--sky);color:#fff;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center}
+.arrow-down{width:0;height:0;margin:20px auto 0;border-left:22px solid transparent;border-right:22px solid transparent;border-top:18px solid var(--sky)}
+.worry-out{text-align:center;font-weight:900;font-size:18px;margin-top:12px}
+
+/* ===== 3. 原因（納得） ===== */
+.chain{display:flex;flex-direction:column;align-items:center;gap:6px;margin:8px 0 20px}
+.chain div{width:100%;text-align:center;border-radius:10px;padding:10px;font-weight:700;font-size:14px}
+.chain .c1{background:var(--orange-l);color:var(--orange-d)}
+.chain .c2{background:var(--sky-l);color:var(--sky-d)}
+.chain .c3{background:var(--sky);color:#fff}
+.chain i{font-style:normal;color:var(--sky);font-size:18px;line-height:1}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.vs > div{border-radius:12px;padding:14px 12px;font-size:13px}
+.vs .l{background:#F1F3F4;color:var(--sub)}
+.vs .r{background:var(--sky-l);border:2px solid var(--sky)}
+.vs h4{font-size:14px;margin-bottom:6px}
+.vs .r h4{color:var(--sky-d)}
+.vs ul{padding-left:1.1em}
+
+/* ===== 4. オールインワン ===== */
+.allin-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.allin-grid .item{border:1px solid var(--line);border-radius:12px;padding:12px;text-align:center}
+.allin-grid .item.base{grid-column:1/-1;border:2px solid var(--sky);background:var(--sky-ll)}
+.allin-grid .ph{height:84px;margin-bottom:8px}
+.allin-grid h4{font-size:15px}
+.allin-grid p{font-size:12.5px;color:var(--sub);line-height:1.6}
+.tag{display:inline-block;font-size:11px;font-weight:700;color:#fff;background:var(--sky);border-radius:999px;padding:1px 10px;margin-bottom:4px}
+
+/* ===== 5. 流れ ===== */
+.flow{background:var(--sky-ll)}
+.steps{list-style:none;position:relative}
+.steps::before{content:"";position:absolute;left:21px;top:10px;bottom:10px;width:2px;background:var(--sky)}
+.steps li{display:grid;grid-template-columns:44px 1fr;gap:12px;margin-bottom:18px;position:relative}
+.steps .num{width:44px;height:44px;border-radius:50%;background:var(--sky);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:Montserrat;font-weight:700;font-size:15px;line-height:1}
+.steps .num small{font-size:8px;letter-spacing:.08em}
+.steps .body{background:#fff;border-radius:12px;padding:12px 14px}
+.steps h4{font-size:15px}
+.steps .min{font-size:11px;color:var(--orange-d);font-weight:700;margin-left:6px}
+.steps p{font-size:13px;color:var(--sub);line-height:1.65}
+.steps .ph{height:110px;margin-top:8px}
+.steps li.key .body{border:2px solid var(--orange)}
+.total80{text-align:center;font-weight:900;font-size:16px;margin-top:4px}
+.total80 b{font-family:Montserrat;font-size:28px;color:var(--orange)}
+
+/* ===== 6. 施術者 ===== */
+.staff-card{border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+.staff-card .ph{height:300px;border-radius:0}
+.staff-card .info{padding:16px}
+.qual{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 10px}
+.qual span{font-size:11.5px;font-weight:700;border:1px solid var(--sky);color:var(--sky-d);border-radius:4px;padding:1px 8px}
+.staff-card .msg{font-size:14px;color:var(--sub)}
+
+/* ===== 7. 向いている／いない ===== */
+.fit{display:grid;gap:12px}
+.fit .box{border-radius:14px;padding:16px}
+.fit .yes{background:var(--sky-l)}
+.fit .no{background:#F4F4F4}
+.fit h4{font-size:16px;margin-bottom:6px}
+.fit .yes h4{color:var(--sky-d)}
+.fit .no h4{color:var(--sub)}
+.fit ul{padding-left:1.2em;font-size:14px}
+
+/* ===== 8. 料金 ===== */
+.price-sec{background:var(--orange-l)}
+.price-card{background:#fff;border-radius:18px;padding:20px;border:2px solid var(--orange);text-align:center}
+.price-card .ttl{font-weight:900;font-size:16px}
+.price-card .min{display:inline-block;background:var(--sky);color:#fff;border-radius:999px;font-size:12px;font-weight:700;padding:2px 12px;margin:6px 0}
+.price-card .big{font-family:Montserrat;font-weight:700;font-size:44px;color:var(--orange);line-height:1.1}
+.price-card .big small{font-family:"Noto Sans JP";font-size:16px}
+.price-card .inc{text-align:left;margin-top:14px;font-size:13.5px;background:var(--sky-ll);border-radius:10px;padding:10px 14px}
+.price-card .inc li{list-style:none;padding:3px 0}
+.price-card .inc li::before{content:"● ";color:var(--sky);font-size:10px}
+.after{margin-top:14px;background:#fff;border-radius:14px;padding:16px;font-size:13.5px}
+.after h4{font-size:15px;margin-bottom:6px}
+.after table{width:100%;border-collapse:collapse;font-size:13px}
+.after td{padding:6px 4px;border-bottom:1px solid var(--line)}
+.after td:last-child{text-align:right;font-weight:700}
+
+/* ===== 9. LINE予約ステップ ===== */
+.ls{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.ls .st{text-align:center;font-size:12.5px}
+.ls .ph{height:200px;margin-bottom:6px}
+.ls b{color:var(--sky-d)}
+
+/* ===== 10. FAQ ===== */
+.faq details{border-bottom:1px solid var(--line);padding:14px 0}
+.faq summary{font-weight:700;list-style:none;cursor:pointer;padding-left:30px;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"Q";position:absolute;left:0;color:var(--sky);font-family:Montserrat;font-weight:700;font-size:18px;top:-2px}
+.faq details p{padding:8px 0 0 30px;font-size:14px;color:var(--sub)}
+
+/* ===== 11. アクセス ===== */
+.access{background:var(--sky-ll)}
+.access .ph{height:180px;margin-bottom:12px}
+.access dl{font-size:14px;display:grid;grid-template-columns:72px 1fr;gap:6px 8px}
+.access dt{font-weight:700;color:var(--sky-d)}
+
+footer{background:var(--ink);color:#fff;text-align:center;font-size:11px;padding:20px}
+
+/* 追従CTA */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;justify-content:center;pointer-events:none}
+.sticky .in{pointer-events:auto;width:100%;max-width:480px;background:rgba(255,255,255,.96);border-top:1px solid var(--line);padding:10px 14px;display:flex;gap:8px;align-items:center}
+.sticky .btn-line{font-size:15px;padding:12px;box-shadow:0 3px 0 var(--orange-d)}
+.sticky .t{flex:0 0 auto;font-size:11px;text-align:center;color:var(--sky-d);text-decoration:none;border:1.5px solid var(--sky);border-radius:999px;padding:9px 12px;font-weight:700}
+
+
+/* ===== v2 追加 ===== */
+.fv h1{font-size:28px}
+/* 80分の使い方バー */
+.use80{background:#fff;border-radius:16px;padding:16px;margin-bottom:24px}
+.use80 .t{font-weight:900;text-align:center;font-size:16px;line-height:1.5}
+.use80 .t b{color:var(--orange);font-family:Montserrat;font-size:24px}
+.bar{display:flex;height:34px;border-radius:8px;overflow:hidden;margin:12px 0 6px;font-size:12px;font-weight:700;color:#fff}
+.bar .know{flex:35;background:var(--orange);display:flex;align-items:center;justify-content:center}
+.bar .tx{flex:45;background:var(--sky);display:flex;align-items:center;justify-content:center}
+.bar-leg{display:flex;justify-content:space-between;font-size:11.5px;color:var(--sub)}
+.use80 p.s{font-size:13px;color:var(--sub);margin-top:10px}
+
+/* 施術者（拡充） */
+.staff-hero{border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+.staff-hero .ph.main{height:320px;border-radius:0}
+.staff-hero .info{padding:18px}
+.staff-hero .name{font-size:20px;font-weight:900}
+.staff-hero .name small{font-size:12px;color:var(--sub);font-weight:500;margin-left:6px}
+.story h4{font-size:15.5px;color:var(--sky-d);margin:18px 0 6px;padding-left:10px;border-left:4px solid var(--sky)}
+.story p{font-size:14px;color:var(--ink)}
+.career{list-style:none;margin-top:16px;border-top:1px solid var(--line);padding-top:10px;font-size:13px}
+.career li{display:grid;grid-template-columns:64px 1fr;gap:8px;padding:4px 0}
+.career li span{color:var(--sky-d);font-weight:700;font-family:Montserrat}
+.staff-sub{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.staff-sub .ph{height:120px}
+
+/* 院について（信頼） */
+.trust{background:var(--sky-ll)}
+.trust-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tcard{background:#fff;border-radius:14px;padding:14px 10px;text-align:center}
+.tcard.wide{grid-column:1/-1}
+.tcard .big{font-family:Montserrat;font-weight:700;font-size:28px;color:var(--sky-d);line-height:1.2}
+.tcard .big small{font-family:"Noto Sans JP";font-size:13px}
+.tcard .stars{color:#F5B301;font-size:18px;letter-spacing:2px}
+.tcard .lbl{font-size:12px;color:var(--sub)}
+.tcard a{display:inline-block;margin-top:6px;font-size:12px;color:var(--sky-d)}
+.promise{list-style:none;margin-top:14px;background:#fff;border-radius:14px;padding:6px 16px}
+.promise li{padding:12px 0 12px 34px;position:relative;border-bottom:1px solid var(--line);font-size:14px}
+.promise li:last-child{border-bottom:none}
+.promise li b{display:block;font-size:15px}
+.promise li::before{content:"";position:absolute;left:0;top:15px;width:22px;height:22px;border-radius:50%;background:var(--orange-l);border:2px solid var(--orange)}
+.promise li::after{content:"";position:absolute;left:8px;top:20px;width:6px;height:10px;border:solid var(--orange);border-width:0 2px 2px 0;transform:rotate(45deg)}
+
+/* 料金前の価値 */
+.learn{display:grid;gap:8px;margin-bottom:18px}
+.learn div{background:#fff;border-radius:12px;padding:12px 14px;display:grid;grid-template-columns:36px 1fr;gap:10px;align-items:center;font-size:14px}
+.learn i{font-style:normal;width:36px;height:36px;border-radius:50%;background:var(--sky);color:#fff;font-family:Montserrat;font-weight:700;display:flex;align-items:center;justify-content:center}
+.learn b{display:block}
+.learn span{font-size:12.5px;color:var(--sub)}
+.price-intro{text-align:center;font-weight:700;margin-bottom:14px}
+.limit{margin-top:12px;font-size:12.5px;text-align:center;color:var(--orange-d);font-weight:700}
+
+/* ===== v3 写真 ===== */
+.fv img.photo{width:100%;height:500px;object-fit:cover;object-position:center 15%}
+.fv-copy{background:linear-gradient(transparent,rgba(255,255,255,.95) 34%)}
+.allin-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px;margin-bottom:8px}
+.allin-grid .item.base img{aspect-ratio:16/9}
+.steps img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px;margin-top:8px}
+.steps img.wide{aspect-ratio:16/9}
+.staff-hero img.main{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 20%}
+.staff-sub img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px}
+.staff-sub figcaption{font-size:11.5px;color:var(--sub);text-align:center;margin-top:4px}
+.team{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:14px;margin-bottom:12px}
+.access img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;margin-bottom:10px}
+.ph.ill{background:repeating-linear-gradient(45deg,#EEF4F7,#EEF4F7 10px,#E3ECF1 10px,#E3ECF1 20px);border:2px dashed #B9C9D3}
+.ls img{width:100%;border-radius:10px;border:1px solid var(--line);margin-bottom:6px}
+.ls .st{line-height:1.5}
+img.ill{width:100%;border-radius:14px;background:#fff;display:block}
+.posture{margin-top:16px;background:#fff;border-radius:14px;padding:8px 8px 12px;border:1px solid var(--line)}
+.posture figcaption{display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px;font-weight:700;text-align:center;margin-top:4px}
+.posture .bad{color:var(--orange-d)}.posture .good{color:var(--sky-d)}
+.price-card .ins{font-size:14px;font-weight:700;color:var(--sub);margin-top:2px}
+
+/* v6 目指すこと */
+.goal{background:linear-gradient(180deg,#fff,var(--sky-ll))}
+.goal .sec-ttl{font-size:21px}
+.goal-steps{display:flex;flex-direction:column;align-items:stretch}
+.gs{border-radius:16px;padding:18px 16px;background:#fff;border:2px solid var(--sky)}
+.gs.g2{border-color:var(--orange)}
+.gs-tag{display:inline-block;font-family:Montserrat;font-weight:700;font-size:11px;letter-spacing:.1em;color:#fff;background:var(--sky);border-radius:999px;padding:2px 10px}
+.gs.g2 .gs-tag{background:var(--orange)}
+.gs h3{font-size:19px;font-weight:900;margin:6px 0 4px}
+.gs.g1 h3{color:var(--sky-d)}.gs.g2 h3{color:var(--orange-d)}
+.gs p{font-size:14px;color:var(--sub)}
+.gs ul{list-style:none;margin-top:8px}
+.gs li{font-size:13.5px;padding:3px 0 3px 20px;position:relative}
+.gs li::before{content:"✓";position:absolute;left:0;color:var(--sky);font-weight:900}
+.gs.g2 li::before{color:var(--orange)}
+.gs-arrow{text-align:center;color:var(--sky);font-size:20px;line-height:1;margin:8px 0}
+.goal-note{margin-top:18px;text-align:center;font-size:14px;font-weight:700;line-height:1.8}
+.goal-note b{color:var(--orange);font-size:18px}
+
+/* v7 */
+.lp-head{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:#fff;border-bottom:3px solid var(--sky)}
+.lp-head .logo-txt{font-weight:900;font-size:17px;color:var(--sky-d);letter-spacing:.04em}
+.lp-head .loc{font-size:11.5px;font-weight:700;color:#fff;background:var(--orange);border-radius:999px;padding:2px 10px}
+.fv img.photo{height:430px}
+.fv-copy{padding:18px 18px 14px}
+.badges{padding-top:12px}
+.badge b{font-size:15px}
+.fv-cta .cta{margin-top:16px}
+.steps img.menu-grid{aspect-ratio:auto;object-fit:contain;background:#fff}
+.fv-copy{text-align:center}
+.dir-head{display:grid;grid-template-columns:104px 1fr;gap:14px;align-items:center;margin-bottom:4px}
+.dir-photo{width:104px;height:104px;border-radius:50%;object-fit:cover;object-position:center 20%;border:3px solid var(--sky-l)}
+.dir-head .name small{display:block;margin:2px 0 0}
+
+/* v9 */
+.after table{font-size:12px}
+.after td:last-child{font-weight:700;font-size:12.5px}
+.after h4{font-size:13px}
+.phone{position:relative;background:#1d2329;border-radius:22px;padding:9px 5px;margin:0 6px 8px;box-shadow:0 4px 12px rgba(0,0,0,.18)}
+.phone::before{content:"";position:absolute;top:3px;left:50%;transform:translateX(-50%);width:34%;height:4px;border-radius:4px;background:#3b444c}
+.phone .mask{position:absolute;left:17%;width:68%;top:69.5%;height:8%;background:rgba(255,255,255,.6);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);border-radius:4px}
+.phone img{display:block;width:100%;border-radius:14px!important;border:none!important;margin:0!important}
+
+/* v10 */
+.lp-head{padding:8px 14px}
+.lp-head .logo{height:30px;width:auto}
+.fv img.photo{height:470px;object-position:center 12%}
+.fv-copy{background:none;padding:0 12px 16px;text-align:center}
+.fv-box{display:inline-block;background:var(--sky);color:#fff;font-weight:900;font-size:21px;line-height:1.35;padding:4px 10px;margin:3px 0;letter-spacing:.02em}
+.fv-box.big{font-size:30px;padding:4px 14px}
+.fv-box.sm{font-size:13px;font-weight:700;padding:3px 10px;margin-bottom:6px}
+.fv h1{margin:0}
+.fv h1 em{color:#fff}
+.fv-sub{margin-top:8px;font-size:14px;font-weight:700;color:var(--sky-d);line-height:1.6}
+.fv-sub span{display:inline-block;background:rgba(255,255,255,.92);padding:1px 8px;margin:1px 0;border-bottom:2px dotted var(--sky)}
+.after2{margin-top:12px;font-size:11.5px;color:var(--sub);line-height:1.7;padding:0 4px}
+.after2 p:first-child{font-size:12.5px;color:var(--ink);margin-bottom:4px}
+.after2 b{color:var(--sky-d)}
+.goal-ill{height:180px;margin-bottom:18px}
+
+/* v11 FV */
+.fv{position:relative}
+.fv img.photo{height:auto;aspect-ratio:1170/1125;object-fit:cover;object-position:center top}
+.fv-copy{position:absolute;left:0;right:0;bottom:0;padding:0 10px 14px;background:none;text-align:center}
+.fv-under{text-align:center;padding:14px 12px 2px;background:#fff}
+.fv-allin{font-weight:900;font-size:16px;color:var(--ink);display:flex;align-items:center;justify-content:center;gap:4px;flex-wrap:wrap}
+.fv-box.ai{font-size:22px;padding:4px 12px;margin:0}
+.fv-under .fv-sub{margin-top:8px}
+.fv-under .fv-sub span{background:none}
+
+/* v12 FV（読みやすさ優先） */
+.fv img.photo{aspect-ratio:3/2;height:auto;object-fit:cover;object-position:center 20%}
+.fv-text{text-align:center;padding:18px 16px 4px;background:#fff}
+.fv-target{display:inline-block;font-size:13px;font-weight:700;color:var(--sky-d);border:1.5px solid var(--sky);border-radius:999px;padding:2px 14px}
+.fv-text h1{font-size:26px;font-weight:900;line-height:1.45;color:var(--ink);margin:10px 0 12px;letter-spacing:.01em}
+.fv-text h1 em{font-style:normal;color:var(--orange);font-size:31px}
+.fv-text .fv-allin{display:flex;align-items:center;justify-content:center;gap:6px;font-weight:900;font-size:16px}
+.fv-text .fv-box.ai{font-size:21px;padding:4px 14px;margin:0;border-radius:4px}
+.fv-lead{margin-top:10px;font-size:15.5px;font-weight:700;color:var(--ink);line-height:1.7}
+.goal-img{margin-bottom:18px;border:1px solid var(--line)}
+.dir-quote{margin:14px 0 4px;padding:12px 14px;background:var(--sky-ll);border-left:4px solid var(--orange);font-weight:700;font-size:15px;line-height:1.7;border-radius:0 10px 10px 0}
+.career li span{font-family:"Noto Sans JP";font-size:12px}
+
+/* v14 比較表 */
+.cmp{border-radius:14px;overflow:hidden;border:1px solid var(--line);font-size:13px}
+.cmp-row{display:grid;grid-template-columns:62px 1fr 1.35fr;border-top:1px solid var(--line)}
+.cmp-row:first-child{border-top:none}
+.cmp-row>div{padding:10px 6px;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.45}
+.cmp-row .k{background:#F4F6F8;font-weight:700;color:var(--sub);font-size:12px}
+.cmp-row .o{color:var(--sub)}
+.cmp-row .m{background:var(--sky-ll);color:var(--ink)}
+.cmp-row .m b{color:var(--sky-d)}
+.cmp-head>div{font-weight:900;font-size:13px;padding:12px 6px}
+.cmp-head .o{background:#E9EDF0;color:var(--sub)}
+.cmp-head .m{background:var(--sky);color:#fff}
+.cmp-head>div:first-child{background:#F4F6F8}
+.cmp-note{margin-top:16px;text-align:center;font-weight:700;font-size:14.5px;line-height:1.7}
+.cmp-note b{color:var(--orange-d)}
+
+/* v16 FV：写真に重ねる（フチ＋シャドウ） */
+.fv{position:relative}
+.fv img.photo{aspect-ratio:2130/2268;height:auto;object-fit:cover;object-position:center top}
+.fv .fv-target{position:absolute;top:12px;left:50%;transform:translateX(-50%);white-space:nowrap;background:rgba(255,255,255,.92);font-size:13px;font-weight:700;color:var(--sky-d);border:1.5px solid var(--sky);border-radius:999px;padding:2px 14px;box-shadow:0 2px 6px rgba(0,0,0,.15)}
+.fv-over{position:absolute;left:0;right:0;bottom:0;padding:0 12px 16px;text-align:center;background:linear-gradient(transparent,rgba(255,255,255,.35) 40%,rgba(255,255,255,.55))}
+.fv-over h1{font-size:28px;font-weight:900;line-height:1.4;color:var(--ink);margin:0 0 10px;text-shadow:3.0px 0.0px 0 #fff,2.8px 1.1px 0 #fff,2.1px 2.1px 0 #fff,1.1px 2.8px 0 #fff,0.0px 3.0px 0 #fff,-1.1px 2.8px 0 #fff,-2.1px 2.1px 0 #fff,-2.8px 1.1px 0 #fff,-3.0px 0.0px 0 #fff,-2.8px -1.1px 0 #fff,-2.1px -2.1px 0 #fff,-1.1px -2.8px 0 #fff,-0.0px -3.0px 0 #fff,1.1px -2.8px 0 #fff,2.1px -2.1px 0 #fff,2.8px -1.1px 0 #fff,0 4px 10px rgba(0,0,0,.35)}
+.fv-over h1 em{font-style:normal;color:var(--orange);font-size:34px}
+.fv-over .fv-allin{display:flex;align-items:center;justify-content:center;gap:6px;font-weight:900;font-size:16px;color:var(--ink);text-shadow:2.2px 0.0px 0 #fff,2.0px 0.8px 0 #fff,1.6px 1.6px 0 #fff,0.8px 2.0px 0 #fff,0.0px 2.2px 0 #fff,-0.8px 2.0px 0 #fff,-1.6px 1.6px 0 #fff,-2.0px 0.8px 0 #fff,-2.2px 0.0px 0 #fff,-2.0px -0.8px 0 #fff,-1.6px -1.6px 0 #fff,-0.8px -2.0px 0 #fff,-0.0px -2.2px 0 #fff,0.8px -2.0px 0 #fff,1.6px -1.6px 0 #fff,2.0px -0.8px 0 #fff,0 3px 8px rgba(0,0,0,.3)}
+.fv-over .fv-box.ai{font-size:21px;padding:4px 14px;margin:0;border-radius:4px;text-shadow:0 1px 2px rgba(0,0,0,.25);box-shadow:0 3px 10px rgba(0,0,0,.25)}
+.fv-over .fv-lead{margin-top:10px;font-size:16px;font-weight:900;color:var(--ink);line-height:1.6;text-shadow:2.2px 0.0px 0 #fff,2.0px 0.8px 0 #fff,1.6px 1.6px 0 #fff,0.8px 2.0px 0 #fff,0.0px 2.2px 0 #fff,-0.8px 2.0px 0 #fff,-1.6px 1.6px 0 #fff,-2.0px 0.8px 0 #fff,-2.2px 0.0px 0 #fff,-2.0px -0.8px 0 #fff,-1.6px -1.6px 0 #fff,-0.8px -2.0px 0 #fff,-0.0px -2.2px 0 #fff,0.8px -2.0px 0 #fff,1.6px -1.6px 0 #fff,2.0px -0.8px 0 #fff,0 3px 8px rgba(0,0,0,.3)}
+.badges{padding-top:14px}
+
+.fv .fv-target{left:auto;right:10px;transform:none;top:10px}
+.fv-over{padding-bottom:14px;background:linear-gradient(transparent,rgba(255,255,255,.45) 45%,rgba(255,255,255,.7))}
+.fv-over h1{font-size:27px;margin-bottom:8px}
+.fv-over h1 em{font-size:33px}
+.fv-lead-under{text-align:center;font-size:15.5px;font-weight:900;color:var(--ink);line-height:1.6;padding:14px 12px 0;background:#fff}
+.fv-lead-under::first-line{color:var(--sky-d)}
+
+/* v17 FV：霧を濃くしてなじませる（画像サイズは変更なし） */
+.fv-over{padding:90px 12px 12px;background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,.55) 30%,rgba(255,255,255,.85) 58%,rgba(255,255,255,.97) 82%,#fff 100%)}
+.fv-over h1{margin-bottom:10px}
+.fv-lead-under{padding-top:10px}
+.fv .fv-target{background:rgba(255,255,255,.95)}
+
+/* v18 FV：スライド（フェード＋ゆっくりズーム） */
+.fv-slides{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;background:#eef4f7}
+.fv-slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;opacity:0;animation:fvfade 15s infinite}
+.fv-slides img:nth-child(1){animation-delay:0s}
+.fv-slides img:nth-child(2){animation-delay:5s}
+.fv-slides img:nth-child(3){animation-delay:10s}
+@keyframes fvfade{0%{opacity:0;transform:scale(1.06)}6%{opacity:1}33%{opacity:1}40%{opacity:0;transform:scale(1)}100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.fv-slides img{animation:none}.fv-slides img:first-child{opacity:1}}
+.fv-over{padding:70px 12px 8px;background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,.6) 40%,rgba(255,255,255,.92) 75%,#fff 100%)}
+.fv-over h1{margin:0}
+.fv-under2{text-align:center;background:#fff;padding:6px 12px 0}
+.fv-under2 .fv-allin{display:flex;align-items:center;justify-content:center;gap:6px;font-weight:900;font-size:16px}
+.fv-under2 .fv-box.ai{font-size:21px;padding:4px 14px;margin:0;border-radius:4px}
+
+/* v19 タイムラインバー */
+.lp-head{border-bottom:none}
+.fv-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:6px 10px;background:#fff}
+.fv-bar i{position:relative;height:4px;border-radius:4px;background:#D9E7EF;overflow:hidden}
+.fv-bar i::after{content:"";position:absolute;inset:0;width:0;background:var(--sky);border-radius:4px}
+.fv-bar i:nth-child(1)::after{animation:seg1 15s linear infinite}
+.fv-bar i:nth-child(2)::after{animation:seg2 15s linear infinite}
+.fv-bar i:nth-child(3)::after{animation:seg3 15s linear infinite}
+@keyframes seg1{0%{width:0}33.33%{width:100%}100%{width:100%}}
+@keyframes seg2{0%,33.33%{width:0}66.66%{width:100%}100%{width:100%}}
+@keyframes seg3{0%,66.66%{width:0}99.9%{width:100%}100%{width:100%}}
+@media (prefers-reduced-motion:reduce){.fv-bar{display:none}}
+
+.fv-under2{padding-top:10px}
+.fv-under2 .fv-box.ai{font-size:30px;padding:6px 22px;border-radius:6px;letter-spacing:.04em;box-shadow:0 3px 10px rgba(43,168,224,.3)}
+
+/* v22 */
+.step-note{font-size:11px!important;color:var(--sub)!important;margin-top:4px}
+.fv-slides img{animation:fvfade5 12.5s infinite}
+.fv-slides img:nth-child(1){animation-delay:0s}.fv-slides img:nth-child(2){animation-delay:2.5s}.fv-slides img:nth-child(3){animation-delay:5s}.fv-slides img:nth-child(4){animation-delay:7.5s}.fv-slides img:nth-child(5){animation-delay:10s}
+@keyframes fvfade5{0%{opacity:0;transform:scale(1.05)}4%{opacity:1}20%{opacity:1}24%{opacity:0;transform:scale(1)}100%{opacity:0}}
+.fv-bar{grid-template-columns:repeat(5,1fr);gap:3px}
+.fv-bar i::after{animation-duration:12.5s!important}
+.fv-bar i:nth-child(1)::after{animation-name:b1}.fv-bar i:nth-child(2)::after{animation-name:b2}.fv-bar i:nth-child(3)::after{animation-name:b3}.fv-bar i:nth-child(4)::after{animation-name:b4}.fv-bar i:nth-child(5)::after{animation-name:b5}
+@keyframes b1{0%{width:0}20%{width:100%}100%{width:100%}}
+@keyframes b2{0%,20%{width:0}40%{width:100%}100%{width:100%}}
+@keyframes b3{0%,40%{width:0}60%{width:100%}100%{width:100%}}
+@keyframes b4{0%,60%{width:0}80%{width:100%}100%{width:100%}}
+@keyframes b5{0%,80%{width:0}99.9%{width:100%}100%{width:100%}}
+.badges.ic{background:#F2F5F7;margin-top:14px;padding:16px 14px;gap:10px}
+.badges.ic .badge{border:none;background:#fff;padding:12px 4px;border-radius:58% 42% 52% 48% / 46% 54% 46% 54%;box-shadow:0 2px 8px rgba(0,0,0,.05);display:flex;flex-direction:column;align-items:center;gap:2px}
+.badges.ic .badge:nth-child(2){border-radius:45% 55% 44% 56% / 55% 45% 55% 45%}
+.badges.ic .badge:nth-child(3){border-radius:52% 48% 60% 40% / 48% 56% 44% 52%}
+.badges.ic .ico svg{width:38px;height:38px;fill:none;stroke:var(--sky-d);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.badges.ic b{font-size:14.5px;color:var(--sky-d)}
+.badges.ic span:not(.ico){font-size:10.5px;line-height:1.4;color:var(--sub)}
+.badges.ic + .fv-cta{background:#F2F5F7;padding-bottom:14px}
+.badges.ic + .fv-cta .cta{margin-top:0}
+
+/* v23 アイコン帯：白背景 */
+.badges.ic{background:#fff;margin-top:10px;padding:8px 16px 4px}
+.badges.ic .badge{background:var(--sky-ll);box-shadow:none;border:1.5px solid #D3ECF8}
+.badges.ic .ico svg{stroke:var(--sky)}
+.badges.ic b{color:var(--sky-d)}
+.badges.ic span:not(.ico){color:var(--sub)}
+.badges.ic + .fv-cta{background:#fff;padding-bottom:6px}
+.badges.ic + .fv-cta .cta{margin-top:14px}
+
+.steps .pair{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}
+.steps .pair img{margin-top:0;aspect-ratio:4/3}
+.steps .pair figcaption{font-size:11px;text-align:center;color:var(--sky-d);font-weight:700;margin-top:2px}
+
+/* v25 */
+#sec03{padding-bottom:28px}
+#sec03 .cmp-note{margin-top:28px}
+.voice{background:#fff}
+.voice-card{border:1px solid var(--line);border-radius:16px;padding:22px 16px;text-align:center;background:var(--sky-ll)}
+.g-logo{font-family:Montserrat,sans-serif;font-weight:700;font-size:26px;letter-spacing:.01em}
+.voice-lead{font-size:14px;line-height:1.8;margin:10px 0 14px}
+.voice-btn{display:inline-block;background:#fff;border:1.5px solid var(--sky);color:var(--sky-d);font-weight:700;font-size:14px;border-radius:999px;padding:10px 22px;text-decoration:none}
+
+/* v27 追従ボタンを青に */
+.sticky .btn-line{background:var(--sky);box-shadow:0 3px 0 var(--sky-d)}
+.sticky .t{color:var(--sky-d);border-color:var(--sky)}
+
+/* v28 追従ボタンに光を走らせる */
+.sticky .btn-line{position:relative;overflow:hidden}
+.sticky .btn-line::after{content:"";position:absolute;top:-10%;left:-60%;width:40%;height:120%;background:linear-gradient(100deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.65) 50%,rgba(255,255,255,0) 100%);transform:skewX(-20deg);animation:shine 3s ease-in-out infinite;pointer-events:none}
+@keyframes shine{0%{left:-60%}45%{left:130%}100%{left:130%}}
+@media (prefers-reduced-motion:reduce){.sticky .btn-line::after{animation:none;display:none}}
+</style>
+<!-- Google tag (gtag.js) GA4：ミツカルオールインワン -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SSRBWMC3Z1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  (function(){
+    var q=new URLSearchParams(location.search);
+    var v=(q.get('v')||q.get('utm_content')||'allin').toLowerCase();
+    if(['allin','neck','back'].indexOf(v)<0) v='allin';
+    window.LP_VARIANT=v;
+    gtag('config','G-SSRBWMC3Z1',{lp_variant:v});
+  })();
+</script>
+</head>
+<body class="plan-a">
+
+<div class="page">
+
+<!-- ========== 01 FV ========== -->
+<header class="lp-head"><img class="logo" src="logo.webp" alt="ミツカル接骨院 MITSUKARU SEKKOTSUIN"><span class="loc">マークイズ静岡 2F</span></header>
+<section class="fv" id="sec01">
+  <div class="fv-bar" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="fv-slides" aria-hidden="true">
+    <img src="fv-s1.webp" alt="">
+    <img src="fv-s2.webp" alt="">
+    <img src="fv-s3.webp" alt="">
+    <img src="fv-s4.webp" alt="">
+    <img src="fv-s5.webp" alt="">
+  </div>
+  <div class="fv-over">
+    <h1 data-v="h1">その不調には、<br><em>原因があります。</em></h1>
+  </div>
+</section>
+<div class="fv-under2">
+  <p class="fv-allin"><span class="fv-box ai">オールインワン施術</span></p>
+  <p class="fv-lead-under">原因から整えて、早く楽に。<br>そして、繰り返さない体へ。</p>
+</div>
+<div class="badges ic">
+  <div class="badge"><span class="ico"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="17"/><path d="M24 13v11l7 5"/></svg></span><b>初診80分</b><span>じっくり<br>時間をかけて</span></div>
+  <div class="badge"><span class="ico"><svg viewBox="0 0 48 48"><rect x="8" y="7" width="26" height="32" rx="3"/><path d="M14 15h14M14 21h14M14 27h8"/><circle cx="34" cy="33" r="7"/><path d="M30 39l-2 6 6-3 6 3-2-6"/></svg></span><b>W国家資格</b><span>全施術者が<br>柔整師＋鍼灸師</span></div>
+  <div class="badge"><span class="ico"><svg viewBox="0 0 48 48"><rect x="10" y="4" width="28" height="40" rx="4"/><circle cx="24" cy="14" r="3.2"/><path d="M24 17.5v11M18 22l6-2 6 2M20 37l4-8.5 4 8.5"/><path d="M14 9v4M14 9h4M34 9v4M34 9h-4M14 39v-4M14 39h4M34 39v-4M34 39h-4"/></svg></span><b>AI姿勢解析</b><span>原因を<br>見える化</span></div>
+</div>
+<div class="fv-cta">
+  <div class="cta">
+    <p class="micro">まずは<b>LINEで空き状況</b>をチェック</p>
+    <a class="btn-line" href="https://lin.ee/yfVtj4D" target="_blank" rel="noopener"><span class="ico">LINE</span><span>友だち追加して予約する<small>空いている日時をその場で選べます</small></span></a>
+  </div>
+</div>
+
+<!-- ========== 02 お悩み ========== -->
+<section class="worry" id="sec02">
+  <p class="sec-en">CHECK</p>
+  <h2 class="sec-ttl" data-v="worryTtl">こんなお悩み、<br>ありませんか？</h2>
+  <img class="ill" data-v-img="worryImg" src="ill-worry.webp" alt="パソコン作業中に首と肩をおさえる女性のイラスト" loading="lazy" style="margin-bottom:16px">
+  <ul class="check" data-v="worryList"></ul>
+  <div class="arrow-down"></div>
+  <p class="worry-out">それは、<em style="font-style:normal;color:var(--sky-d)">辛い場所</em>と<em style="font-style:normal;color:var(--sky-d)">原因</em>が<br>ちがうからかもしれません。</p>
+</section>
+
+<!-- ========== 03 比較 ========== -->
+<section id="sec03">
+  <p class="sec-en">DIFFERENCE</p>
+  <h2 class="sec-ttl">揉みほぐしと、<br><em>ここが違います。</em></h2>
+  <div class="cmp">
+    <div class="cmp-row cmp-head"><div></div><div class="o"><span>一般的な<br>揉みほぐし</span></div><div class="m"><span>ミツカル<br>接骨院</span></div></div>
+    <div class="cmp-row"><div class="k"><span>施術者</span></div><div class="o"><span>お店により<br>さまざま</span></div><div class="m"><span>全員が<b>国家資格</b><br>（柔道整復師・鍼灸師）</span></div></div>
+    <div class="cmp-row"><div class="k"><span>検査</span></div><div class="o"><span>簡単な<br>ヒアリング</span></div><div class="m"><span>問診＋<b>AI姿勢解析</b></span></div></div>
+    <div class="cmp-row"><div class="k"><span>説明</span></div><div class="o"><span>—</span></div><div class="m"><span>結果を見ながら<br><b>原因をご説明</b></span></div></div>
+    <div class="cmp-row"><div class="k"><span>施術</span></div><div class="o"><span>辛い場所を<br>ほぐす</span></div><div class="m"><span>骨格矯正・鍼・<br>筋肉調整・EMSを<br><b>組み合わせて施術</b></span></div></div>
+    <div class="cmp-row"><div class="k"><span>施術後</span></div><div class="o"><span>—</span></div><div class="m"><span>変化の確認と<br><b>セルフケア</b>のご案内</span></div></div>
+  </div>
+  <p class="cmp-note">その場をほぐすだけでなく、<br><b>原因から整える</b>のが<br>ミツカルのオールインワン施術です。</p>
+</section>
+
+<!-- ========== 05 流れ（80分の使い方） ========== -->
+<section class="flow" id="sec05">
+  <p class="sec-en">FLOW</p>
+  <h2 class="sec-ttl">初診80分の流れ</h2>
+  <div class="use80">
+    <p class="t">80分のうち<b>35</b>分は、<br>「知る・確かめる」時間です。</p>
+    <div class="bar"><div class="know">知る・確かめる 35分</div><div class="tx">施術 45分</div></div>
+    <div class="bar-leg"><span>問診・検査・説明・確認</span><span>オールインワン施術</span></div>
+    <p class="s">ミツカル接骨院は、お客様の安心を第一に考え、いきなり施術を始めることはしません。お体の状態と原因をしっかり確認し、ご納得いただいてから施術に入ります。</p>
+  </div>
+  <ol class="steps">
+    <li><div class="num"><small>STEP</small>1</div><div class="body"><h4>問診<span class="min">約10分</span></h4><p>いつから、どんな時に辛いのかをお聞きします。</p><img src="flow-counseling.webp" alt="カウンセリングの様子" loading="lazy"></div></li>
+    <li><div class="num"><small>STEP</small>2</div><div class="body"><h4>AI姿勢解析・動きの検査<span class="min">約10分</span></h4><p>立った姿勢をAIで解析し、<span data-v="part">体</span>の動きも見ていきます。</p><div class="pair"><figure><img src="flow-check.webp" alt="タブレットで姿勢を撮影している様子" loading="lazy"><figcaption>AI姿勢解析</figcaption></figure><figure><img src="flow-move.webp" alt="関節の動きを確認している様子" loading="lazy"><figcaption>動きの確認</figcaption></figure></div></div></li>
+    <li class="key"><div class="num" style="background:var(--orange)"><small>STEP</small>3</div><div class="body"><h4>原因のご説明<span class="min">約5分</span></h4><p>解析結果を見ながら「<span data-v="why">なぜ辛いのか</span>」をご説明します。</p><img src="flow-confirm2.webp" alt="解析結果を見ながら説明を受けている様子" loading="lazy"></div></li>
+    <li><div class="num"><small>STEP</small>4</div><div class="body"><h4>オールインワン施術<span class="min">約45分</span></h4><p>問診と解析の結果をもとに、その日の状態に合った施術を組み合わせます。</p><p class="step-note">※約45分はEMSを使用した場合の目安です。施術の組み合わせにより変動します。</p><img class="menu-grid" src="flow-menu.webp" alt="骨格調整・電子温灸・電気施術・鍼施術・筋肉調整などの施術" loading="lazy"></div></li>
+    <li class="key"><div class="num" style="background:var(--orange)"><small>STEP</small>5</div><div class="body"><h4>最後にもう一度確認<span class="min">約10分</span></h4><p>最初と同じ動きをして、変化を一緒に確かめます。通う目安とご自宅でできるケアもお伝えします。無理なおすすめはしません。</p><img src="flow-confirm3.webp" alt="施術後に体の状態を確認している様子" loading="lazy"></div></li>
+  </ol>
+</section>
+
+
+<!-- ========== 05b 目指すこと（早期改善・再発防止） ========== -->
+<section class="goal" id="sec05b">
+  <p class="sec-en">OUR GOAL</p>
+  <h2 class="sec-ttl">ミツカルが目指すのは、<br><em>早く楽になること。</em><br>そして、<em>繰り返さないこと。</em></h2>
+  <img class="ill goal-img" src="ill-goal.webp" alt="施術後に体が楽になった女性と、良い姿勢で笑顔で歩く女性のイラスト" loading="lazy">
+  <div class="goal-steps">
+    <div class="gs g1">
+      <span class="gs-tag">STEP 1</span>
+      <h3>まずは、早く楽に。</h3>
+      <p>原因に直接アプローチして、今の辛さを早く軽くすることを目指します。</p>
+      <ul><li>骨格矯正・鍼施術で原因から整える</li><li>施術の前と後で、変化を確かめる</li></ul>
+    </div>
+    <div class="gs-arrow">▼</div>
+    <div class="gs g2">
+      <span class="gs-tag">STEP 2</span>
+      <h3>そして、繰り返さない体へ。</h3>
+      <p>楽になったあとも、戻りにくい体をつくることを目指します。</p>
+      <ul><li>姿勢のクセを整え、負担がかかりにくい体に</li><li>ご自宅でできるセルフケアをお伝え</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 09 料金（価値→価格） ========== -->
+<section class="price-sec" id="sec09">
+  <p class="sec-en">PRICE</p>
+  <h2 class="sec-ttl">料金のご案内</h2>
+  <div class="price-card">
+    <p class="ttl">オールインワン施術（初診）</p>
+    <span class="min">約80分</span>
+    <p class="big">6,600<small>円</small></p>
+    <p class="ins">＋別途保険料（保険証をご持参ください）</p>
+    <ul class="inc">
+      <li>問診・AI姿勢解析・動きの検査</li>
+      <li>原因のご説明</li>
+      <li>骨格矯正・鍼施術・筋肉調整・EMS など<br><small style="color:var(--sub)">（その日の状態に合わせて組み合わせます）</small></li>
+      <li>最後の確認・ご自宅でのケアのご案内</li>
+    </ul>
+  </div>
+  <div class="cta">
+    <p class="micro">ご予約は<b>LINE</b>から。空いている日時を選ぶだけです。</p>
+    <a class="btn-line" href="https://lin.ee/yfVtj4D" target="_blank" rel="noopener"><span class="ico">LINE</span><span>友だち追加して予約する</span></a>
+  </div>
+</section>
+
+<!-- ========== 10 LINE予約 ========== -->
+<section id="sec10">
+  <p class="sec-en">RESERVE</p>
+  <h2 class="sec-ttl">LINEで<br><em>かんたん5ステップ</em></h2>
+  <div class="ls">
+    <div class="st"><div class="phone"><img src="line-step1.webp" alt="LINEに届くオールインワン施術のカード" loading="lazy"><span class="mask" aria-hidden="true"></span></div><b>1.</b> 友だち追加後、「予約はコチラ」をタップ</div>
+    <div class="st"><div class="phone"><img src="line-step2.webp" alt="施術内容を選ぶ画面" loading="lazy"></div><b>2.</b> 「初回オールインワン施術」を選ぶ</div>
+    <div class="st"><div class="phone"><img src="line-step3.webp" alt="日時を選ぶ画面" loading="lazy"></div><b>3.</b> 空いている日時を選ぶ</div>
+    <div class="st"><div class="phone"><img src="line-step4.webp" alt="お名前などを入力する画面" loading="lazy"></div><b>4.</b> お名前などを入力して、緑のボタンをタップ</div>
+    <div class="st"><div class="phone"><img src="line-step5.webp" alt="予約内容が入力されたLINEのトーク画面" loading="lazy"></div><b>5.</b> 入力された文面をそのまま送信</div>
+    <div class="st"><div class="phone"><img src="line-step6.webp" alt="院からの返信" loading="lazy"></div><b>✓</b> 院から予約確定のご連絡</div>
+  </div>
+  <div class="cta">
+    <a class="btn-line" href="https://lin.ee/yfVtj4D" target="_blank" rel="noopener"><span class="ico">LINE</span><span>友だち追加して予約する</span></a>
+    <a class="tel" href="tel:054-262-6040">お電話でのご予約：054-262-6040</a>
+  </div>
+</section>
+
+<!-- ========== 06 院長紹介 ========== -->
+<section id="sec06">
+  <p class="sec-en">DIRECTOR</p>
+  <h2 class="sec-ttl">院長紹介</h2>
+  <div class="staff-hero">
+    <div class="info">
+      <div class="dir-head"><img class="dir-photo" src="staff-main.webp" alt="院長 𠮷原幸治" loading="lazy"><div>
+      <p class="name">𠮷原 幸治<small>ミツカル接骨院 院長</small></p>
+      <div class="qual"><span>柔道整復師</span><span>鍼灸師</span></div></div></div>
+      <p class="dir-quote">「笑顔」と「ありがとう」を直接いただけることが、この仕事の一番の喜びです。</p>
+      <div class="story">
+        <h4>大切にしていること</h4>
+        <p>患者様と、心の近い距離で向き合うことです。いくつもの不調が重なっている方、相談できるところがなく諦めかけている方の「よりどころ」になれるよう、一人ひとりに寄り添って施術しています。</p>
+        <h4>院の外での活動</h4>
+        <p>他院の先生への技術指導のほか、ボランティアで障がい者サッカーチームのメディカルトレーナーを務めています。ARROWZ GYMでは栄養学講座や親子ストレッチ講座の講師も担当しています。</p>
+      </div>
+      <ul class="career">
+        <li><span>経歴</span>東京メディカルスポーツ専門学校 卒業</li>
+        <li><span>資格</span>柔道整復師・鍼灸師（国家資格）</li>
+        <li><span>現在</span>ミツカル接骨院 院長</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 07 院について（信頼） ========== -->
+<section class="trust" id="sec07">
+  <p class="sec-en">ABOUT</p>
+  <h2 class="sec-ttl">ミツカル接骨院について</h2>
+  <img class="team" src="team.webp" alt="ミツカル接骨院のスタッフ" loading="lazy">
+  <ul class="promise">
+    <li><b>原因をご説明してから始めます</b>わからないまま進めることはしません。</li>
+    <li><b>無理に回数券をすすめません</b>通う目安をお伝えし、決めるのはお客様です。</li>
+    <li><b>苦手なことはご相談ください</b>鍼が苦手、強い刺激が苦手などに合わせて変えられます。</li>
+  </ul>
+</section>
+
+<!-- ========== 08 向いている／いない ========== -->
+<section id="sec08">
+  <p class="sec-en">FOR YOU</p>
+  <h2 class="sec-ttl">こんな方に<br>向いています</h2>
+  <div class="fit">
+    <div class="box yes"><h4>◎ こんな方におすすめ</h4><ul><li>痛みや辛さを繰り返したくない方</li><li>辛さの原因を知りたい方</li><li>1回でまとめて受けたい方</li><li>じっくり体を見てほしい方</li></ul></div>
+    <div class="box no"><h4>△ こんな方には向かないかも</h4><ul><li>とにかく短く、安く済ませたい方</li><li>その場が楽になれば十分な方</li></ul></div>
+  </div>
+</section>
+
+<!-- ========== 11 FAQ ========== -->
+<section class="faq" id="sec11">
+  <p class="sec-en">FAQ</p>
+  <h2 class="sec-ttl">よくあるご質問</h2>
+  <details><summary>鍼は痛くないですか？</summary><p>髪の毛ほどの細い鍼を使います。苦手な方は、鍼なしで組み立てることもできます。</p></details>
+  <details><summary>ほかの部位も相談できますか？</summary><p>はい。肩・首・腰など、気になることは問診でまとめてお聞かせください。</p></details>
+  <details><summary>どんな服装で行けばいいですか？</summary><p>お着替えをご用意しています。お仕事やお買い物の帰りでも、そのままどうぞ。</p></details>
+  <details><summary>保険証は必要ですか？</summary><p>お持ちの方はご持参ください。保険が適用されると、窓口でのご負担が軽くなります。</p></details>
+  <details><summary>駐車場はありますか？</summary><p>マークイズ静岡の駐車場をご利用いただけます。</p></details>
+  <details><summary>2回目以降も通う必要がありますか？</summary><p>初診で、体の状態と通う目安をお伝えします。決めるのはそのあとで大丈夫です。</p></details>
+</section>
+
+<!-- ========== 12 アクセス ========== -->
+<section class="access" id="sec12">
+  <p class="sec-en">ACCESS</p>
+  <h2 class="sec-ttl">お買い物ついでに、<br>マークイズ静岡で。</h2>
+  <img src="access-entrance.webp" alt="ミツカル接骨院の入口" loading="lazy">
+  <iframe src="https://www.google.com/maps?q=%E3%83%9F%E3%83%84%E3%82%AB%E3%83%AB%E6%8E%A5%E9%AA%A8%E9%99%A2+%E3%83%9E%E3%83%BC%E3%82%AF%E3%82%A4%E3%82%BA%E9%9D%99%E5%B2%A1&amp;hl=ja&amp;z=16&amp;output=embed" title="ミツカル接骨院（マークイズ静岡 2階）の地図" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="display:block;width:100%;height:220px;border:0;border-radius:12px;margin-bottom:12px"></iframe>
+  <dl>
+    <dt>院名</dt><dd>ミツカル接骨院</dd>
+    <dt>住所</dt><dd>〒420-0821 静岡市葵区柚木1026<br>マークイズ静岡 2階</dd>
+    <dt>受付時間</dt><dd>10:00〜14:00／16:00〜20:00<br>年中無休（全館休館日を除く）</dd>
+    <dt>電話</dt><dd><a href="tel:054-262-6040">054-262-6040</a></dd>
+    <dt>駐車場</dt><dd>マークイズ静岡の駐車場</dd>
+  </dl>
+  <div class="cta">
+    <a class="btn-line" href="https://lin.ee/yfVtj4D" target="_blank" rel="noopener"><span class="ico">LINE</span><span>友だち追加して予約する</span></a>
+  </div>
+</section>
+
+<footer>© ミツカル接骨院（株式会社やまがた）</footer>
+</div>
+
+<div class="sticky"><div class="in">
+  <a class="btn-line" href="https://lin.ee/yfVtj4D" target="_blank" rel="noopener"><span class="ico">LINE</span><span>予約はLINEから</span></a>
+  <a class="t" href="tel:054-262-6040">電話</a>
+</div></div>
+
+<script>
+/* ===== 広告パターン切り替え：URLの ?v=neck / ?v=back / ?v=allin（指定なし＝allin） ===== */
+(function(){
+  var V={"allin": {"title": "オールインワン施術｜ミツカル接骨院 マークイズ静岡", "target": "辛さを繰り返している方へ", "h1": "その不調には、<br><em>原因があります。</em>", "worryTtl": "こんなお悩み、<br>ありませんか？", "worryList": ["揉んでもらっても、すぐに戻る", "肩・首・腰など、不調がいくつも重なっている", "病院で「異常なし」と言われたのに、辛い", "いつも同じところが辛くなる", "どこに行っても「ほぐして終わり」"], "worryImg": "ill-worry.webp", "part": "肩・首・腰", "why": "なぜ辛いのか"}, "neck": {"title": "肩・首の痛みに｜オールインワン施術｜ミツカル接骨院", "target": "肩・首の痛みを繰り返している方へ", "h1": "その肩・首の痛みには、<br><em>原因があります。</em>", "worryTtl": "こんな肩・首の痛み、<br>ありませんか？", "worryList": ["肩・首を揉んでもらっても、すぐに戻る", "マッサージの翌日には、もう重い", "首が回しにくい。頭痛や目の疲れもある", "パソコンやスマホで、気づくと肩が上がっている", "どこに行っても「ほぐして終わり」"], "worryImg": "ill-worry.webp", "part": "肩や首", "why": "なぜ肩・首が痛むのか"}, "back": {"title": "腰の痛みに｜オールインワン施術｜ミツカル接骨院", "target": "腰の痛みを繰り返している方へ", "h1": "その腰の痛みには、<br><em>原因があります。</em>", "worryTtl": "こんな腰の痛み、<br>ありませんか？", "worryList": ["腰を揉んでもらっても、すぐに戻る", "朝起きたとき、腰が重い・痛い", "長く座ったあと、立ち上がるのが辛い", "前かがみや中腰が辛い", "どこに行っても「ほぐして終わり」"], "worryImg": "ill-back.webp", "part": "腰や股関節", "why": "なぜ腰が痛むのか"}};
+  var q=new URLSearchParams(location.search);
+  var v=(q.get('v')||q.get('utm_content')||'allin').toLowerCase();
+  if(!V[v]) v='allin';
+  var d=V[v]; window.LP_VARIANT=v; document.documentElement.setAttribute('data-variant',v);
+  document.title=d.title;
+  document.querySelectorAll('[data-v]').forEach(function(el){
+    var k=el.getAttribute('data-v'), val=d[k]; if(val==null) return;
+    el.innerHTML=Array.isArray(val)?val.map(function(t){return '<li>'+t+'</li>'}).join(''):val;
+  });
+  document.querySelectorAll('[data-v-img]').forEach(function(img){
+    var src=d[img.getAttribute('data-v-img')];
+    img.onerror=function(){img.style.display='none'};
+    if(src) img.src=src;
+  });
+  /* ===== GA4 計測 ===== */
+  function send(name,p){ if(typeof gtag==='function'){ p=p||{}; p.lp_variant=v; gtag('event',name,p);} }
+  /* LINE・電話ボタン：どのセクションのボタンかも記録 */
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a'); if(!a) return;
+    var sec=a.closest('section,.fv-cta,.sticky'); var where=sec?(sec.id||sec.className.split(' ')[0]):'other';
+    if(a.classList.contains('btn-line')) send('click_line',{section:where,link_text:a.textContent.trim().slice(0,30)});
+    else if((a.getAttribute('href')||'').indexOf('tel:')===0) send('click_tel',{section:where});
+  });
+  /* セクション到達 */
+  if('IntersectionObserver' in window){
+    var seen={};
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){
+      if(en.isIntersecting && !seen[en.target.id]){seen[en.target.id]=1;send('view_section',{section:en.target.id});}
+    });},{threshold:0.4});
+    document.querySelectorAll('section[id]').forEach(function(sct){io.observe(sct);});
+  }
+  /* スクロール深度 25/50/75/100% */
+  var marks=[25,50,75,100],done={};
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement, pct=(h.scrollTop+innerHeight)/h.scrollHeight*100;
+    marks.forEach(function(m){ if(pct>=m && !done[m]){done[m]=1;send('scroll_depth',{percent:m});} });
+  },{passive:true});
+})();
+</script>
+</body>
+</html>
